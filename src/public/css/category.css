@@ -1,20 +1,20 @@
-.menu__input--short {
-  width: 40%;
+.menu__input--long {
+  width: 70%;
   height: 100%;
   border-radius: 5px;
   margin: auto auto auto 0px;
   border: #aaa 1px solid;
 }
 
-.list-header__input--short {
-  width: 40%;
+.list-header__input--long {
+  width: 80%;
   margin: 0px auto 0px 0px;
   font-size: 18px;
   font-weight: 900;
 }
 
-.update-form__input--short {
-  width: 40%;
+.update-form__input--long {
+  width: 80%;
   height: 30px;
   margin: auto auto auto 0px;
   border: hidden;

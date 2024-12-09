@@ -25,17 +25,37 @@ class TodoRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'content' => ['required', 'string', 'max:20'],
-        ];
+        $formType = $this->input('form_type');
+
+        if ($formType === 'create') {
+            return [
+                'create_category_name' => ['required','exists:categories,name'],
+                'create_content' => ['required', 'string', 'max:20'],
+            ];
+        }
+        elseif ($formType === 'update') {
+            return [
+                'update_category_name' => ['required','exists:categories,name'],
+                'update_content' => ['required', 'string', 'max:20'],
+            ];
+        }
+        return [];
     }
 
     public function messages()
     {
         return [
-            'content.required' => 'Todoを入力してください',
-            'content.string' => 'Todoを文字列で入力してください',
-            'content.max' => 'Todoを20文字以下で入力してください',
+            'create_category_name.required' => 'カテゴリを入力してください',
+            'create_category_name.exists' => 'カテゴリが存在しません',
+            'create_content.required' => 'Todoを入力してください',
+            'create_content.string' => 'Todoを文字列で入力してください',
+            'create_content.max' => 'Todoを20文字以下で入力してください',
+
+            'update_category_name.required' => 'カテゴリを入力してください',
+            'update_category_name.exists' => 'カテゴリが存在しません',
+            'update_content.required' => 'Todoを入力してください',
+            'update_content.string' => 'Todoを文字列で入力してください',
+            'update_content.max' => 'Todoを20文字以下で入力してください',
         ];
     }
 }
